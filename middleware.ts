@@ -8,10 +8,10 @@ export default clerkMiddleware(async (auth, request) => {
   if (!isPublicRoute(request)) {
     await auth.protect();
   }
-  // if (
-  //   ignoredRoutes.some((route) => request.nextUrl.pathname.startsWith(route))
-  // ) {
-  // }
+  if (
+    ignoredRoutes.some((route) => request.nextUrl.pathname.startsWith(route))
+  ) {
+  }
   return NextResponse.next();
 });
 
